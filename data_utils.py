@@ -1,7 +1,9 @@
 import pandas as pd
 
+
 def load_data():
-    df = pd.read_csv("data/global_retail_sales.csv")
+    # CSV is in the same folder as app.py on GitHub/Streamlit Cloud
+    df = pd.read_csv("global_retail_sales.csv")
     return df
 
 
@@ -20,14 +22,19 @@ def group_and_sum(df, group_col, metric):
 
 
 def drill_down(df, year):
-    return df[df["year"] == year].groupby("month_name")["revenue"].sum().reset_index()
+    return (
+        df[df["year"] == year]
+        .groupby("month_name")["revenue"]
+        .sum()
+        .reset_index()
+    )
 
 
 def compare_years(df, year1, year2):
     y1 = df[df["year"] == year1]["revenue"].sum()
     y2 = df[df["year"] == year2]["revenue"].sum()
     return {
-        "year1": y1,
-        "year2": y2,
-        "difference": y2 - y1
+        "year1": float(y1),
+        "year2": float(y2),
+        "difference": float(y2 - y1),
     }
