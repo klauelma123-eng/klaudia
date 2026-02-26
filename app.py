@@ -11,7 +11,7 @@ from data_utils import (
 )
 
 st.set_page_config(page_title="OLAP Assistant ", layout="wide")
-st.title("📊 Global Retail OLAP Assistant  — Streamlit")
+st.title("📊 Global Retail OLAP Assistant  ")
 
 # Load data (cached)
 @st.cache_data
@@ -175,6 +175,7 @@ if st.button("Run Plan"):
 
     except Exception as e:
         st.error(str(e))
+
 
 
 
