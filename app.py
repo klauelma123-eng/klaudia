@@ -10,8 +10,8 @@ from data_utils import (
     compare_years,
 )
 
-st.set_page_config(page_title="OLAP Assistant (Tier 2)", layout="wide")
-st.title("📊 OLAP Assistant (Tier 2) — Streamlit")
+st.set_page_config(page_title="OLAP Assistant ", layout="wide")
+st.title("📊 Global Retail OLAP Assistant  — Streamlit")
 
 # Load data (cached)
 @st.cache_data
@@ -175,5 +175,6 @@ if st.button("Run Plan"):
 
     except Exception as e:
         st.error(str(e))
+
 
 
